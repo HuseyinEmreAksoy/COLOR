@@ -9,7 +9,9 @@ public class PlayerContoller : MonoBehaviour
     public GameObject[] bullets = new GameObject[3];  //Red Green Blue Bullets
     public float yBound = 4.0f;
     public float xPos = -7.0f;
-    [SerializeField] float impactTime = 0.3f;
+    [SerializeField] public float impactTime = 0.5F;
+    [SerializeField] private float nextFire = 0.0F;
+ 
 
 
     // Start is called before the first frame update
@@ -27,22 +29,25 @@ public class PlayerContoller : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime * input);
   
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {                                                //Spawns RED bullet with Z
+        if (Input.GetKeyDown(KeyCode.Z) && Time.time > nextFire)
+        {                                               //Spawns RED bullet with Z
+            nextFire = Time.time + impactTime;
             Instantiate(bullets[0], gameObject.transform.position, gameObject.transform.rotation);
-            ShowImpact(bullets[0]);
 
 
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
         {                                               //Spawns GREEN bullet with X
+            nextFire = Time.time + impactTime;
+   
             Instantiate(bullets[1], gameObject.transform.position, gameObject.transform.rotation);;
-            ShowImpact(bullets[1]);
+
         }
-        if (Input.GetKeyDown(KeyCode.C))
+       else if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
         {                                                //Spawns BLUE bullet with C
+            nextFire = Time.time + impactTime;
             Instantiate(bullets[2], gameObject.transform.position, gameObject.transform.rotation);
-            ShowImpact(bullets[2]);
+  
         }
 
         //Prevent player to cross y bounds
@@ -53,18 +58,5 @@ public class PlayerContoller : MonoBehaviour
         }
 
     }
-    public void ShowImpact(GameObject a)
-    {
-        
-        StartCoroutine(ShowSplatter(a));
-        
 
-    }
-    IEnumerator ShowSplatter(GameObject a)
-    {
-        a.SetActive(false);
-        yield return new WaitForSeconds(impactTime);
-        a.SetActive(true);
-
-    }
 }

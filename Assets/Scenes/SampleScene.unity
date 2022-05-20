@@ -494,4 +494,5 @@ MonoBehaviour:
   - {fileID: 502364078581679035, guid: cc40993af4443ae4992cba9f24e90a7c, type: 3}
   yBound: 4
   xPos: -7
-  impactTime: 1.5
+  impactTime: 0.3
+  nextFire: 0
