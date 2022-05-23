@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HandleCollisons : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,34 @@ public class HandleCollisons : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+
+        //Bullet hits obstacle
         if(other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(other.gameObject);    
-            Debug.Log(gameObject.GetComponent<SpriteRenderer>().color.ToString());
+            Color bulletColor = other.gameObject.GetComponent<SpriteRenderer>().color;
+            Color obstacleColor = gameObject.GetComponent<SpriteRenderer>().color;
+            Color newColor = sumTwoColors(bulletColor, obstacleColor);
+            gameObject.GetComponent<SpriteRenderer>().color = newColor;
+            
+            Destroy(other.gameObject); //bullet destroyed
+
+            if(newColor == Color.white) //destroys obstacle if its color is white
+            {     
+                Destroy(this.gameObject);
+            }
         }
+
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private Color sumTwoColors(Color c1, Color c2) 
+    {
+        float r = c1.r + c2.r < 1 ? (c1.r + c2.r) : 1;
+        float g = c1.g + c2.g < 1 ? (c1.g + c2.g) : 1;
+        float b = c1.b + c2.b < 1 ? (c1.b + c2.b) : 1;
+        return new Color(r,g,b,1);
     }
 }

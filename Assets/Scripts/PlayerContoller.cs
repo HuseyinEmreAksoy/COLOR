@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerContoller : MonoBehaviour
 {
 
-    public float speed = 5.0f;
+    [SerializeField] public float speed = 5.0f;
     public GameObject[] bullets = new GameObject[3];  //Red Green Blue Bullets
     public float yBound = 4.0f;
     public float xPos = -7.0f;
