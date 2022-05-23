@@ -33,23 +33,23 @@ public class PlayerContoller : MonoBehaviour
         {                                               //Spawns RED bullet with Z
             nextFire = Time.time + impactTime;
             Instantiate(bullets[0], gameObject.transform.position, gameObject.transform.rotation);
-
+            GetComponent<Animator>().SetBool("attack", true);
 
         }
         else if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
         {                                               //Spawns GREEN bullet with X
             nextFire = Time.time + impactTime;
-   
             Instantiate(bullets[1], gameObject.transform.position, gameObject.transform.rotation);;
-
+            GetComponent<Animator>().SetBool("attack", true);
         }
        else if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
         {                                                //Spawns BLUE bullet with C
             nextFire = Time.time + impactTime;
             Instantiate(bullets[2], gameObject.transform.position, gameObject.transform.rotation);
-  
+            GetComponent<Animator>().SetBool("attack", true);
         }
-
+        else
+            GetComponent<Animator>().SetBool("attack", false);
         //Prevent player to cross y bounds
         if (transform.position.y < -yBound || transform.position.y > yBound)
         {
