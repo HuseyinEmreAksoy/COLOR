@@ -7,8 +7,8 @@ public class PlayerContoller : MonoBehaviour
 
     [SerializeField] public float speed = 5.0f;
     public GameObject[] bullets = new GameObject[3];  //Red Green Blue Bullets
-    public float yBound = 4.0f;
-    public float xPos = -7.0f;
+    [SerializeField] public float yBound = 4.0f;
+    [SerializeField] public float xPos = -7.0f;
     [SerializeField] public float impactTime = 0.5F;
     [SerializeField] private float nextFire = 0.0F;
  

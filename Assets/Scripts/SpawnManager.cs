@@ -7,9 +7,11 @@ public class SpawnManager : MonoBehaviour
     private int level = 1;
     
     public GameObject obstacle;
+
     private float yBound = 4.0f; //Update PlayerController script if change is needed
     private float xPos = 10.0f, zPos = 0.0f;
     [SerializeField] public float startingDelay = 2.5f, intervalDelay =  4.5f;
+    
     private Color[] colors= {Color.red, Color.green, Color.blue, Color.yellow, Color.magenta, Color.cyan, Color.black}; // red green blue yellow(r+g) pink(r+b) cyan(g+b) black  Size = 7
     [SerializeField] public float levelDuration = 25.0f;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HandleCollisons : MonoBehaviour
 {
+    [SerializeField] float time = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class HandleCollisons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -30,8 +31,11 @@ public class HandleCollisons : MonoBehaviour
             Destroy(other.gameObject); //bullet destroyed
             
             if(newColor == Color.white) //destroys obstacle if its color is white
-            {     
-                Destroy(this.gameObject);
+            {
+                Debug.Log("hiiit");
+                this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+                StartCoroutine(waiter());
+               
             }
         }
 
@@ -48,5 +52,11 @@ public class HandleCollisons : MonoBehaviour
         float g = c1.g + c2.g < 0.9f ? (c1.g + c2.g) : 1;
         float b = c1.b + c2.b < 0.9f ? (c1.b + c2.b) : 1;
         return new Color(r,g,b,1);
+    }
+    IEnumerator waiter()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(time);
+        Destroy(this.gameObject);
     }
 }
