@@ -29,7 +29,7 @@ public class HandleCollisons : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = newColor;
             
             Destroy(other.gameObject); //bullet destroyed
-
+            
             if(newColor == Color.white) //destroys obstacle if its color is white
             {
                 Debug.Log("hiiit");
@@ -41,15 +41,16 @@ public class HandleCollisons : MonoBehaviour
 
         if(other.gameObject.CompareTag("Player"))
         {
+            other.GetComponent<PlayerContoller>().DecreaseLife();
             Destroy(this.gameObject);
         }
     }
 
     private Color sumTwoColors(Color c1, Color c2) 
     {
-        float r = c1.r + c2.r < 1 ? (c1.r + c2.r) : 1;
-        float g = c1.g + c2.g < 1 ? (c1.g + c2.g) : 1;
-        float b = c1.b + c2.b < 1 ? (c1.b + c2.b) : 1;
+        float r = c1.r + c2.r < 0.9f ? (c1.r + c2.r) : 1;
+        float g = c1.g + c2.g < 0.9f ? (c1.g + c2.g) : 1;
+        float b = c1.b + c2.b < 0.9f ? (c1.b + c2.b) : 1;
         return new Color(r,g,b,1);
     }
     IEnumerator waiter()
