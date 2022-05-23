@@ -12,7 +12,7 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] public float impactTime = 0.5F;
     [SerializeField] private float nextFire = 0.0F;
  
-
+    private int life = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +57,14 @@ public class PlayerContoller : MonoBehaviour
             transform.position = limit;
         }
 
+    }
+
+    public void DecreaseLife(){
+        life--;
+        if(life == 0){
+            Time.timeScale = 0;
+            Debug.Log("Game is OVER!");
+        }
     }
 
 }
