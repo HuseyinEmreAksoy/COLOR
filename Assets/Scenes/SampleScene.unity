@@ -466,14 +466,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f95b93e0ef7fb4bb84e34bf510a52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   bullets:
   - {fileID: 6613602151993125232, guid: 4c192453b9cd4954897e5a989bf53998, type: 3}
   - {fileID: 8909407997137728236, guid: b1a3f84bd52f2fc48b6d6c71ec3eb769, type: 3}
   - {fileID: 502364078581679035, guid: cc40993af4443ae4992cba9f24e90a7c, type: 3}
   yBound: 4
   xPos: -7
-  impactTime: 0.3
+  impactTime: 0.25
   nextFire: 0
 --- !u!95 &1498343517
 Animator:

@@ -6,8 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
 
     public GameObject obstacle;
-    public float yBound = 4.0f; //Update PlayerController script if change is needed
-    public float xPos = 10.0f, zPos = 0.0f;
+    [SerializeField] public float yBound = 4.0f; //Update PlayerController script if change is needed
+    [SerializeField] public float xPos = 10.0f, zPos = 0.0f;
     [SerializeField] public float startingDelay = 2.5f, intervalDelay =  1.5f;
     private Color[] colors= {Color.red, Color.green, Color.blue, Color.yellow, Color.magenta, Color.cyan, Color.black}; // red green blue yellow(r+g) pink(r+b) cyan(g+b) black  Size = 7
 
