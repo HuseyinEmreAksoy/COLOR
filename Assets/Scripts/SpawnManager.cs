@@ -10,9 +10,9 @@ public class SpawnManager : MonoBehaviour
 
     private float yBound = 4.0f; //Update PlayerController script if change is needed
     private float xPos = 10.0f, zPos = 0.0f;
-    [SerializeField] public float startingDelay = 2.5f, intervalDelay =  4.5f;
+    [SerializeField] public float startingDelay = 2.5f, intervalDelay =  3f;
     
-    private Color[] colors= {Color.red, Color.green, Color.blue, Color.yellow, Color.magenta, Color.cyan, Color.black}; // red green blue yellow(r+g) pink(r+b) cyan(g+b) black  Size = 7
+    private Color[] colors= {Color.red, Color.green, Color.blue, new Color(1,1,0,1), Color.magenta, Color.cyan, Color.black}; // red green blue yellow(r+g) pink(r+b) cyan(g+b) black  Size = 7
     [SerializeField] public float levelDuration = 25.0f;
 
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(level);
+        //Debug.Log(level);
     }
 
     //Spawns random obstacle from obstacles array
@@ -40,6 +40,5 @@ public class SpawnManager : MonoBehaviour
     void LevelUp(){
         Time.timeScale *= 1.20f;
         level++;
-
     }
 }

@@ -13,6 +13,8 @@ public class PlayerContoller : MonoBehaviour
     [SerializeField] private float nextFire = 0.0F;
  
     private int life = 3;
+    int score = 0; //Kill a obstacle +2
+                           //False color spawn -1  
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,6 @@ public class PlayerContoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         float input = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(0.0f, 1.0f, 0.0f);
         transform.Translate(direction * speed * Time.deltaTime * input);
@@ -50,6 +51,7 @@ public class PlayerContoller : MonoBehaviour
         }
         else
             GetComponent<Animator>().SetBool("attack", false);
+
         //Prevent player to cross y bounds
         if (transform.position.y < -yBound || transform.position.y > yBound)
         {
@@ -65,6 +67,10 @@ public class PlayerContoller : MonoBehaviour
             Time.timeScale = 0;
             Debug.Log("Game is OVER!");
         }
+    }
+
+    public void EnemyDestroyed(){
+        score += 2;
     }
 
 }
