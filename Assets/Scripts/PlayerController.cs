@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void DecreaseLife(){
+    public void DecreaseLife()
+    {
         curLife = Mathf.Clamp(curLife - 1, 0, life);
 
         if(curLife == 0){
@@ -80,18 +81,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void EnemyDestroyed(){
+    public void IncreaseLife()
+    {
+        curLife++;
+    }
+
+    public void EnemyDestroyed()
+    {
         score += 2;
         UpdateScore();
     }
 
-    public void FalseColor(){
+    public void FalseColor()
+    {
         score--;
         UpdateScore();
     }
 
     //Updates score on the screen.
-    private void UpdateScore(){
+    private void UpdateScore()
+    {
         textScore.text = "Score:" + score;
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class HandleCollisons : MonoBehaviour
 {
-    [SerializeField] float time = 10f;
+    [SerializeField] float dropChance = 0.1f; //IMPORTANT: Do not set this var higher than 0.5, if you do, life draps after every kill
+    [SerializeField] float time = 0.1f;
+    public GameObject heart;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +20,16 @@ public class HandleCollisons : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Heart reaches player
+        if(gameObject.CompareTag("Heart") && other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
 
         //Bullet hits obstacle
-        if(other.gameObject.CompareTag("Bullet"))
+        if(gameObject.CompareTag("Obstacle") && other.gameObject.CompareTag("Bullet"))
         {
             Color bulletColor = other.gameObject.GetComponent<SpriteRenderer>().color;
             Color obstacleColor = gameObject.GetComponent<SpriteRenderer>().color;
@@ -38,14 +46,21 @@ public class HandleCollisons : MonoBehaviour
 
             if(newColor == Color.white) //destroys obstacle if its color is white
             {
+            
+                if (DropHealth())
+                {
+                    Instantiate(heart, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    GameObject.Find("Player").GetComponent<PlayerController>().IncreaseLife();
+                }
+                
                 this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
                 StartCoroutine(waiter());
                 GameObject.Find("Player").GetComponent<PlayerController>().EnemyDestroyed();
-                DropHealth();
             }
         }
 
-        if(other.gameObject.CompareTag("Border"))
+        //Obstacle reaches the player
+        if(gameObject.CompareTag("Obstacle") && other.gameObject.CompareTag("Border"))
         {
             GameObject.Find("Player").GetComponent<PlayerController>().DecreaseLife();
         }
@@ -71,13 +86,10 @@ public class HandleCollisons : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void DropHealth()
+    private bool DropHealth()
     {
-        float chanceOfHealth = (3 - GameObject.Find("Player").GetComponent<PlayerController>().life) * 0.05f;
+        float chanceOfHealth = (3 - GameObject.Find("Player").GetComponent<PlayerController>().curLife) * dropChance;
         float rand = Random.Range(0,1);
-        if( chanceOfHealth > rand )
-        {
-            GameObject.Find("Player").GetComponent<PlayerController>().life++;
-        }
+        return (chanceOfHealth > rand);
     }
 }
