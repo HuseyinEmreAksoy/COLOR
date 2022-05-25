@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     
     public GameObject obstacle;
 
-    private float yBound = 4.0f; //Update PlayerController script if change is needed
+    private float yLowerBound, yUpperBound;
     private float xPos = 10.0f, zPos = 0.0f;
     [SerializeField] public float startingDelay = 2.5f, intervalDelay =  3f;
     
@@ -18,6 +18,10 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerController playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        yUpperBound = playerController.yUpperBound;
+        yLowerBound = playerController.yLowerBound;
+
         InvokeRepeating("LevelUp", levelDuration + startingDelay, levelDuration);
         InvokeRepeating("SpawnObstacle", startingDelay, intervalDelay);
     }
@@ -25,12 +29,12 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(level);
+
     }
 
     //Spawns random obstacle from obstacles array
     void SpawnObstacle(){
-            float yPos = Random.Range((int)-yBound,(int)yBound);
+            float yPos = Random.Range(yLowerBound, yUpperBound);
             int randColorIndex = Random.Range(0,7);
             Vector3 pos = new Vector3(xPos, yPos, zPos);
             GameObject toGo = Instantiate(obstacle, pos, obstacle.transform.rotation);

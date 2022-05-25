@@ -26,21 +26,28 @@ public class HandleCollisons : MonoBehaviour
             Color bulletColor = other.gameObject.GetComponent<SpriteRenderer>().color;
             Color obstacleColor = gameObject.GetComponent<SpriteRenderer>().color;
             Color newColor = sumTwoColors(bulletColor, obstacleColor);
-            gameObject.GetComponent<SpriteRenderer>().color = newColor;
             
+            if(IsFalseColor(bulletColor, obstacleColor))
+            {
+                GameObject.Find("Player").GetComponent<PlayerController>().FalseColor();
+            }
+
             Destroy(other.gameObject); //bullet destroyed
             
+            gameObject.GetComponent<SpriteRenderer>().color = newColor;
+
             if(newColor == Color.white) //destroys obstacle if its color is white
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
                 StartCoroutine(waiter());
-                GameObject.Find("Player").GetComponent<PlayerContoller>().EnemyDestroyed();
+                GameObject.Find("Player").GetComponent<PlayerController>().EnemyDestroyed();
+                DropHealth();
             }
         }
 
         if(other.gameObject.CompareTag("Border"))
         {
-            GameObject.Find("Player").GetComponent<PlayerContoller>().DecreaseLife();
+            GameObject.Find("Player").GetComponent<PlayerController>().DecreaseLife();
         }
     }
 
@@ -51,10 +58,26 @@ public class HandleCollisons : MonoBehaviour
         float b = c1.b + c2.b < 0.9f ? 0 : 1;
         return new Color(r,g,b,1);
     }
+
+    private bool IsFalseColor(Color bulletColor, Color obstacleColor)
+    {
+        return ( (bulletColor.r + obstacleColor.r > 1.5f) || (bulletColor.b + obstacleColor.b > 1.5f) || (bulletColor.g + obstacleColor.g > 1.5f) );
+    }
+
     IEnumerator waiter()
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         yield return new WaitForSeconds(time);
         Destroy(this.gameObject);
+    }
+
+    private void DropHealth()
+    {
+        float chanceOfHealth = (3 - GameObject.Find("Player").GetComponent<PlayerController>().life) * 0.05f;
+        float rand = Random.Range(0,1);
+        if( chanceOfHealth > rand )
+        {
+            GameObject.Find("Player").GetComponent<PlayerController>().life++;
+        }
     }
 }

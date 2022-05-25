@@ -1,22 +1,24 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
-public class PlayerContoller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] public float speed = 5.0f;
     public GameObject[] bullets = new GameObject[3];  //Red Green Blue Bullets
-    [SerializeField] public float yBound = 4.0f;
+    [SerializeField] public float yUpperBound = 3.15f, yLowerBound = -4;
     [SerializeField] public float xPos = -7.0f;
     [SerializeField] public float impactTime = 0.5F;
     [SerializeField] private float nextFire = 0.0F;
     [SerializeField] private float placeX = 0.05F;
     [SerializeField] private float placeY = 1.0F;
-    private int life = 3;
+    public int life = 3;
     public int curLife { get; private set; }
-    int score = 0; //Kill a obstacle +2
-                   //False color spawn -1  
+    private int score = 0; //Kill a obstacle +2   False color spawn -1  
+    public TextMeshProUGUI textScore;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -56,10 +58,13 @@ public class PlayerContoller : MonoBehaviour
             GetComponent<Animator>().SetBool("attack", false);
 
         //Prevent player to cross y bounds
-        if (transform.position.y < -yBound || transform.position.y > yBound)
+        if (transform.position.y < yLowerBound)
         {
-            Vector3 limit = new Vector3(xPos, (float)Math.Round(transform.position.y), 0.0f);
-            transform.position = limit;
+            transform.position = new Vector3(xPos, yLowerBound, 0);
+        }
+        if(transform.position.y > yUpperBound)
+        {
+            transform.position = new Vector3(xPos, yUpperBound, 0);
         }
 
     }
@@ -77,6 +82,16 @@ public class PlayerContoller : MonoBehaviour
 
     public void EnemyDestroyed(){
         score += 2;
+        UpdateScore();
     }
 
+    public void FalseColor(){
+        score--;
+        UpdateScore();
+    }
+
+    //Updates score on the screen.
+    private void UpdateScore(){
+        textScore.text = "Score:" + score;
+    }
 }
