@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
         float input = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(0.0f, 1.0f, 0.0f);
         transform.Translate(direction * speed * Time.deltaTime * input);
-  
+        GetComponent<Animator>().SetBool("Run", input != 0);
+
 
         if (Input.GetKeyDown(KeyCode.Z) && Time.time > nextFire)
         {                                               //Spawns RED bullet with Z
@@ -42,21 +43,20 @@ public class PlayerController : MonoBehaviour
             GetComponent<Animator>().SetBool("attack", true);
 
         }
-        else if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
+        if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
         {                                               //Spawns GREEN bullet with X
             nextFire = Time.time + impactTime;
             Instantiate(bullets[1], new Vector3(gameObject.transform.position.x + placeX, (gameObject.transform.position.y - placeY), gameObject.transform.position.z), gameObject.transform.rotation);;
             GetComponent<Animator>().SetBool("attack", true);
         }
-       else if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
+       if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
         {                                                //Spawns BLUE bullet with C
             nextFire = Time.time + impactTime;
             Instantiate(bullets[2], new Vector3(gameObject.transform.position.x + placeX, (gameObject.transform.position.y - placeY), gameObject.transform.position.z), gameObject.transform.rotation);
             GetComponent<Animator>().SetBool("attack", true);
         }
-        else
-            GetComponent<Animator>().SetBool("attack", false);
 
+            GetComponent<Animator>().SetBool("attack", false);
         //Prevent player to cross y bounds
         if (transform.position.y < yLowerBound)
         {
@@ -66,11 +66,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xPos, yUpperBound, 0);
         }
-
     }
 
     public void DecreaseLife(){
         curLife = Mathf.Clamp(curLife - 1, 0, life);
+        GetComponent<Animator>().SetTrigger("hurt");
 
         if(curLife == 0){
             
