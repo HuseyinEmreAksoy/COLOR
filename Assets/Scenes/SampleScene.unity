@@ -1051,7 +1051,7 @@ GameObject:
   - component: {fileID: 1498343518}
   - component: {fileID: 1498343519}
   m_Layer: 0
-  m_Name: Jacky Rainbow
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
