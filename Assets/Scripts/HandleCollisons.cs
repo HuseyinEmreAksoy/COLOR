@@ -52,8 +52,6 @@ public class HandleCollisons : MonoBehaviour
                     Instantiate(heart, this.gameObject.transform.position, this.gameObject.transform.rotation);
                     GameObject.Find("Player").GetComponent<PlayerController>().IncreaseLife();
                 }
-                
-                this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
                 StartCoroutine(waiter());
                 GameObject.Find("Player").GetComponent<PlayerController>().EnemyDestroyed();
             }
@@ -82,8 +80,11 @@ public class HandleCollisons : MonoBehaviour
     IEnumerator waiter()
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        this.gameObject.GetComponent<Animator>().SetBool("dieEnemy", true);
         yield return new WaitForSeconds(time);
+        this.gameObject.GetComponent<Animator>().SetBool("dieEnemy", false);
         Destroy(this.gameObject);
+        
     }
 
     private bool DropHealth()
