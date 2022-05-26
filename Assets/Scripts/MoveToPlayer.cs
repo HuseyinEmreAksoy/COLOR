@@ -29,6 +29,6 @@ public class MoveToPlayer : MonoBehaviour
         float currScale = (currxDistance / xDistance)*initScale;
 
         transform.localScale = new Vector3(currScale, currScale, currScale);
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * -speed * Time.deltaTime);
     }
 }
