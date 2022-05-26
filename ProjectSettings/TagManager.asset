@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Bullet
   - Border
+  - Heart
   layers:
   - Default
   - TransparentFX
