@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour
 
     public void DecreaseLife()
     {
-        curLife = Mathf.Clamp(curLife - 1, 0, life);
         GetComponent<Animator>().SetTrigger("hurt");
+        curLife = Mathf.Clamp(curLife - 1, 0, life);
 
         if(curLife == 0){
             
