@@ -402,7 +402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 834, y: 509}
+  m_AnchoredPosition: {x: 827.77, y: 502}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902617796
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -18.198242, y: 0, z: 0, w: -5.5994263}
+  m_margin: {x: -73.19983, y: 0, z: 0, w: -5.5994263}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1017,6 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 6224405655258377437, guid: a3c9d0ef2f18c2f41b80aeddbaa935c1, type: 3}
+  superPower_white: {fileID: 7898301768649371251, guid: 0ffb5e9f55aeafd40b1b9c24867ae7c3, type: 3}
   startingDelay: 2.5
   intervalDelay: 3
   levelDuration: 25

@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Border
   - Heart
+  - SuperPower
   layers:
   - Default
   - TransparentFX

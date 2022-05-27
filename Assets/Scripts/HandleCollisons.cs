@@ -22,10 +22,27 @@ public class HandleCollisons : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Superpower collisons
+        if(gameObject.CompareTag("SuperPower"))
+        {
+            if(other.gameObject.CompareTag("Obstacle"))
+            {
+                Destroy(other.gameObject);
+            }
+            else if(other.gameObject.CompareTag("Bullet"))
+            {
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+                GameObject.Find("Player").GetComponent<PlayerController>().superPowerWhite = true;
+            }
+        }
+
+
+
         //Heart reaches player
         if(gameObject.CompareTag("Heart") && other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
 
         //Bullet hits obstacle
@@ -90,7 +107,7 @@ public class HandleCollisons : MonoBehaviour
     private bool DropHealth()
     {
         float chanceOfHealth = (3 - GameObject.Find("Player").GetComponent<PlayerController>().curLife) * dropChance;
-        float rand = Random.Range(0,1);
+        float rand = Random.Range(0.0f,1.0f);
         return (chanceOfHealth > rand);
     }
 }

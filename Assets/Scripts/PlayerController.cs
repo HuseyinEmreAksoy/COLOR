@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private int score = 0; //Kill a obstacle +2   False color spawn -1  
     public TextMeshProUGUI textScore;
 
+    public bool superPowerWhite = false;
+
 
     // Start is called before the first frame update
     private void Awake()
