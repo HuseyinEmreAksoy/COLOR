@@ -1073,7 +1073,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.56990623, y: 0.1422925}
   m_SpriteTilingProperty:
-    border: {x: 5.7119455, y: 6.2999997, z: 4.6715913, w: 5.0699997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 16.685682, y: 23.88}
     newSize: {x: 16.685682, y: 23.88}
@@ -1178,6 +1178,7 @@ MonoBehaviour:
   placeY: 1
   life: 3
   textScore: {fileID: 902617796}
+  superPowerWhite: 0
 --- !u!95 &1498343517
 Animator:
   serializedVersion: 4

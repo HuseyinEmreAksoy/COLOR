@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float impactTime = 0.5F;
     [SerializeField] private float nextFire = 0.0F;
     [SerializeField] private float placeX = 0.05F;
-    [SerializeField] private float placeY = 1.0F;
     public int life = 3;
     public int curLife { get; private set; }
     private int score = 0; //Kill a obstacle +2   False color spawn -1  
@@ -41,20 +40,20 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) && Time.time > nextFire)
         {                                               //Spawns RED bullet with Z
             nextFire = Time.time + impactTime;
-            Instantiate(bullets[0], new Vector3(gameObject.transform.position.x + placeX, (gameObject.transform.position.y - placeY), gameObject.transform.position.z), gameObject.transform.rotation);
+            Instantiate(bullets[0], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
             GetComponent<Animator>().SetBool("attack", true);
 
         }
         if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
         {                                               //Spawns GREEN bullet with X
             nextFire = Time.time + impactTime;
-            Instantiate(bullets[1], new Vector3(gameObject.transform.position.x + placeX, (gameObject.transform.position.y - placeY), gameObject.transform.position.z), gameObject.transform.rotation);;
+            Instantiate(bullets[1], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);;
             GetComponent<Animator>().SetBool("attack", true);
         }
        if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
         {                                                //Spawns BLUE bullet with C
             nextFire = Time.time + impactTime;
-            Instantiate(bullets[2], new Vector3(gameObject.transform.position.x + placeX, (gameObject.transform.position.y - placeY), gameObject.transform.position.z), gameObject.transform.rotation);
+            Instantiate(bullets[2], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
             GetComponent<Animator>().SetBool("attack", true);
         }
 
