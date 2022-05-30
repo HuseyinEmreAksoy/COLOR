@@ -29,5 +29,6 @@ public class MoveToPlayer : MonoBehaviour
 
         transform.localScale = new Vector3(currScale, currScale, currScale);
         transform.Translate(direction * speed * Time.deltaTime);
+
     }
 }

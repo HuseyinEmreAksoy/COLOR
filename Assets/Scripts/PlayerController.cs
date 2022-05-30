@@ -72,15 +72,34 @@ public class PlayerController : MonoBehaviour
 
     public void DecreaseLife()
     {
-        GetComponent<Animator>().SetTrigger("hurt");
-        curLife = Mathf.Clamp(curLife - 1, 0, life);
-
-        if(curLife == 0){
+        if (curLife != 0)
+        {
+            curLife = Mathf.Clamp(curLife - 1, 0, life);
+            if (curLife > 0)
+                GetComponent<Animator>().SetTrigger("hurt");
             
-            Time.timeScale = 0;
-            GetComponent<DeadHandler>().HandleDeath();
-            Debug.Log("Game is OVER!");
         }
+
+        if (curLife == 0){
+            
+            GetComponent<Animator>().SetTrigger("die");
+            CallMe();
+
+        }
+        
+    }
+    void CallMe()
+    {
+        // Invoke("MethodName", Delay seconds as float);
+        Invoke("CallMeWithWait", 0.7f);
+    }
+
+    void CallMeWithWait()
+    {
+        Time.timeScale = 0;
+        GetComponent<DeadHandler>().HandleDeath();
+
+        Debug.Log("Game is OVER!");
     }
 
     public void IncreaseLife()
