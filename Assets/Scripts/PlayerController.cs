@@ -41,23 +41,22 @@ public class PlayerController : MonoBehaviour
         {                                               //Spawns RED bullet with Z
             nextFire = Time.time + impactTime;
             Instantiate(bullets[0], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
-            GetComponent<Animator>().SetBool("attack", true);
+            GetComponent<Animator>().SetTrigger("attack");
 
         }
         if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
         {                                               //Spawns GREEN bullet with X
             nextFire = Time.time + impactTime;
             Instantiate(bullets[1], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);;
-            GetComponent<Animator>().SetBool("attack", true);
+            GetComponent<Animator>().SetTrigger("attack");
         }
        if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
         {                                                //Spawns BLUE bullet with C
             nextFire = Time.time + impactTime;
             Instantiate(bullets[2], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
-            GetComponent<Animator>().SetBool("attack", true);
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
-            GetComponent<Animator>().SetBool("attack", false);
         //Prevent player to cross y bounds
         if (transform.position.y < yLowerBound)
         {
