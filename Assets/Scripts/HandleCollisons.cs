@@ -50,23 +50,34 @@ public class HandleCollisons : MonoBehaviour
         {
             Color bulletColor = other.gameObject.GetComponent<SpriteRenderer>().color;
             Color obstacleColor = gameObject.GetComponent<SpriteRenderer>().color;
-            Color newColor = sumTwoColors(bulletColor, obstacleColor);
+            Color newColor;
             
-            if(IsFalseColor(bulletColor, obstacleColor))
+            if(bulletColor == Color.white)
             {
-                GameObject.Find("Player").GetComponent<PlayerController>().FalseColor();
+                newColor = Color.white;
             }
-
-            Destroy(other.gameObject); //bullet destroyed
+            else
+            {
+                newColor = sumTwoColors(bulletColor, obstacleColor);
+                if(IsFalseColor(bulletColor, obstacleColor))
+                {
+                    GameObject.Find("Player").GetComponent<PlayerController>().FalseColor();
+                }
+            }
             
+            Destroy(other.gameObject); //bullet destroyed
             gameObject.GetComponent<SpriteRenderer>().color = newColor;
 
             if(newColor == Color.white) //destroys obstacle if its color is white
             {
-            
-                if (DropHealth())
+                if(!DropHealth())
+                {
+                    GameObject.Find("CloudDies").GetComponent<AudioSource>().Play();
+                }
+                else
                 {
                     Instantiate(heart, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    GameObject.Find("HealthAdded").GetComponent<AudioSource>().Play();
                     GameObject.Find("Player").GetComponent<PlayerController>().IncreaseLife();
                 }
                 StartCoroutine(waiter());

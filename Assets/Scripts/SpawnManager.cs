@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class SpawnManager : MonoBehaviour
     private Color[] colors= {Color.red, Color.green, Color.blue, new Color(1,1,0,1), Color.magenta, Color.cyan, Color.black}; // red green blue yellow(r+g) pink(r+b) cyan(g+b) black  Size = 7
     [SerializeField] public float levelDuration = 25.0f;
 
+    public TextMeshProUGUI textLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class SpawnManager : MonoBehaviour
 
         InvokeRepeating("LevelUp", levelDuration + startingDelay, levelDuration);
         InvokeRepeating("SpawnObstacle", startingDelay, intervalDelay);
+        //InvokeRepeating("DropSuperPower", startingDelay, intervalDelay);
     }
 
     // Update is called once per frame
@@ -44,11 +48,15 @@ public class SpawnManager : MonoBehaviour
     void LevelUp(){
         Time.timeScale *= 1.20f;
         level++;
+        textLevel.text = "Level:" + level;
+        if( GameObject.Find("Player").GetComponent<PlayerController>().superPowerWhite )
+            GameObject.Find("Player").GetComponent<PlayerController>().superPowerWhite = false;
         DropSuperPower();
     }
 
     void DropSuperPower(){
         float randXPos = Random.Range(-4.0f, 8.0f);
+        //float randXPos = -4;   
         Vector3 pos = new Vector3( randXPos, yUpperBound + 1.0f ,0);
         Instantiate(superPower_white, pos, superPower_white.transform.rotation);
     }
