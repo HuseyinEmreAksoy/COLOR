@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] public float speed = 5.0f;
-    public GameObject[] bullets = new GameObject[3];  //Red Green Blue Bullets
+    public GameObject[] bullets = new GameObject[4];  //Red Green Blue White Bullets
     [SerializeField] public float yUpperBound = 3.15f, yLowerBound = -4;
     [SerializeField] public float xPos = -7.0f;
     [SerializeField] public float impactTime = 0.5F;
@@ -36,25 +36,35 @@ public class PlayerController : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime * input);
         GetComponent<Animator>().SetBool("Run", input != 0);
 
-
-        if (Input.GetKeyDown(KeyCode.Z) && Time.time > nextFire)
-        {                                               //Spawns RED bullet with Z
-            nextFire = Time.time + impactTime;
-            Instantiate(bullets[0], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
-            GetComponent<Animator>().SetTrigger("attack");
-
+        if(!superPowerWhite)
+        {
+            if (Input.GetKeyDown(KeyCode.Z) && Time.time > nextFire)
+            {                                               //Spawns RED bullet with Z
+                nextFire = Time.time + impactTime;
+                Instantiate(bullets[0], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+                GetComponent<Animator>().SetTrigger("attack");
+            }
+            if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
+            {                                               //Spawns GREEN bullet with X
+                nextFire = Time.time + impactTime;
+                Instantiate(bullets[1], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);;
+                GetComponent<Animator>().SetTrigger("attack");
+            }
+            if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
+            {                                                //Spawns BLUE bullet with C
+                nextFire = Time.time + impactTime;
+                Instantiate(bullets[2], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+                GetComponent<Animator>().SetTrigger("attack");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFire)
-        {                                               //Spawns GREEN bullet with X
-            nextFire = Time.time + impactTime;
-            Instantiate(bullets[1], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);;
-            GetComponent<Animator>().SetTrigger("attack");
-        }
-       if (Input.GetKeyDown(KeyCode.C) && Time.time > nextFire)
-        {                                                //Spawns BLUE bullet with C
-            nextFire = Time.time + impactTime;
-            Instantiate(bullets[2], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
-            GetComponent<Animator>().SetTrigger("attack");
+        else
+        {
+            if ( (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z) ) && Time.time > nextFire)
+            {                                             
+                nextFire = Time.time + impactTime;
+                Instantiate(bullets[3], new Vector3(gameObject.transform.position.x + placeX, gameObject.transform.position.y, gameObject.transform.position.z), gameObject.transform.rotation);
+                GetComponent<Animator>().SetTrigger("attack");
+            }
         }
 
         //Prevent player to cross y bounds
