@@ -11,7 +11,7 @@ public class HandleCollisons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -62,6 +62,11 @@ public class HandleCollisons : MonoBehaviour
                 if(IsFalseColor(bulletColor, obstacleColor))
                 {
                     GameObject.Find("Player").GetComponent<PlayerController>().FalseColor();
+                    GameObject.Find("CloudHitsReverse").GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    GameObject.Find("CloudHits").GetComponent<AudioSource>().Play();
                 }
             }
             
@@ -83,6 +88,8 @@ public class HandleCollisons : MonoBehaviour
                 StartCoroutine(waiter());
                 GameObject.Find("Player").GetComponent<PlayerController>().EnemyDestroyed();
             }
+
+
         }
 
         //Obstacle reaches the player
