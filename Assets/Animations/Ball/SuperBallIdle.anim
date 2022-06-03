@@ -13,61 +13,36 @@ AnimationClip:
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
   m_CompressedRotationCurves: []
-  m_EulerCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: 0, y: -180, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: 
+  m_EulerCurves: []
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 8ccd09dfcc2d9694c9bc3f8aafd62c9c, type: 3}
+      value: {fileID: 21300000, guid: d406bb6d942221347aa2756cda563984, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: ee1f6b4e8f0df1245aad1fc9baa2c8c6, type: 3}
+      value: {fileID: 21300000, guid: c235292180786954ba6c1772b4a858c9, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 8eabcd90396c51040b3b675905486b80, type: 3}
+      value: {fileID: 21300000, guid: 99785a547f025a9479791729338662ad, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 46fb22e63a18fb84f8e73a6942c0d7dd, type: 3}
+      value: {fileID: 21300000, guid: d437cb8bcf8856e458ec2f632a8931f7, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 161c16284956c3b40a1a79bfe50a91d9, type: 3}
+      value: {fileID: 21300000, guid: 108d0e8e5a81fe643a67ea85bb3f8612, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 1ee6ee0682f87a64cb380d6686ea0c3f, type: 3}
+      value: {fileID: 21300000, guid: b43d2156d6622f542bb71213b15e3988, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: 8ccd09dfcc2d9694c9bc3f8aafd62c9c, type: 3}
+      value: {fileID: 21300000, guid: 84950b4c1b07a3340b35fdf8e8efb4fa, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: ee1f6b4e8f0df1245aad1fc9baa2c8c6, type: 3}
+      value: {fileID: 21300000, guid: 2f21428357058f149bffa9e905cec8b3, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: 8eabcd90396c51040b3b675905486b80, type: 3}
+      value: {fileID: 21300000, guid: 7b6c336c1f8e6044cab49d4e4bcb9713, type: 3}
     - time: 0.75
-      value: {fileID: 21300000, guid: 46fb22e63a18fb84f8e73a6942c0d7dd, type: 3}
+      value: {fileID: 21300000, guid: 3c63491abe0e3a44980b43a7d8b8bc87, type: 3}
     - time: 0.8333333
-      value: {fileID: 21300000, guid: 161c16284956c3b40a1a79bfe50a91d9, type: 3}
+      value: {fileID: 21300000, guid: 9c864892394568d4796b07c08ffa5d4a, type: 3}
     - time: 0.9166667
-      value: {fileID: 21300000, guid: 1ee6ee0682f87a64cb380d6686ea0c3f, type: 3}
+      value: {fileID: 21300000, guid: 8ccd09dfcc2d9694c9bc3f8aafd62c9c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -81,31 +56,24 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 4
-      script: {fileID: 0}
-      typeID: 4
-      customType: 4
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: 21300000, guid: d406bb6d942221347aa2756cda563984, type: 3}
+    - {fileID: 21300000, guid: c235292180786954ba6c1772b4a858c9, type: 3}
+    - {fileID: 21300000, guid: 99785a547f025a9479791729338662ad, type: 3}
+    - {fileID: 21300000, guid: d437cb8bcf8856e458ec2f632a8931f7, type: 3}
+    - {fileID: 21300000, guid: 108d0e8e5a81fe643a67ea85bb3f8612, type: 3}
+    - {fileID: 21300000, guid: b43d2156d6622f542bb71213b15e3988, type: 3}
+    - {fileID: 21300000, guid: 84950b4c1b07a3340b35fdf8e8efb4fa, type: 3}
+    - {fileID: 21300000, guid: 2f21428357058f149bffa9e905cec8b3, type: 3}
+    - {fileID: 21300000, guid: 7b6c336c1f8e6044cab49d4e4bcb9713, type: 3}
+    - {fileID: 21300000, guid: 3c63491abe0e3a44980b43a7d8b8bc87, type: 3}
+    - {fileID: 21300000, guid: 9c864892394568d4796b07c08ffa5d4a, type: 3}
     - {fileID: 21300000, guid: 8ccd09dfcc2d9694c9bc3f8aafd62c9c, type: 3}
-    - {fileID: 21300000, guid: ee1f6b4e8f0df1245aad1fc9baa2c8c6, type: 3}
-    - {fileID: 21300000, guid: 8eabcd90396c51040b3b675905486b80, type: 3}
-    - {fileID: 21300000, guid: 46fb22e63a18fb84f8e73a6942c0d7dd, type: 3}
-    - {fileID: 21300000, guid: 161c16284956c3b40a1a79bfe50a91d9, type: 3}
-    - {fileID: 21300000, guid: 1ee6ee0682f87a64cb380d6686ea0c3f, type: 3}
-    - {fileID: 21300000, guid: 8ccd09dfcc2d9694c9bc3f8aafd62c9c, type: 3}
-    - {fileID: 21300000, guid: ee1f6b4e8f0df1245aad1fc9baa2c8c6, type: 3}
-    - {fileID: 21300000, guid: 8eabcd90396c51040b3b675905486b80, type: 3}
-    - {fileID: 21300000, guid: 46fb22e63a18fb84f8e73a6942c0d7dd, type: 3}
-    - {fileID: 21300000, guid: 161c16284956c3b40a1a79bfe50a91d9, type: 3}
-    - {fileID: 21300000, guid: 1ee6ee0682f87a64cb380d6686ea0c3f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -126,122 +94,8 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
-  m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -180
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  m_EulerEditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: 
-    classID: 4
-    script: {fileID: 0}
-  m_HasGenericRootTransform: 1
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events: []
