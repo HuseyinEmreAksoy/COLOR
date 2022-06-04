@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Story : MonoBehaviour
 {
-    float timeLeft = 47.0f;
+    float timeLeft = 34.0f;
 
     // Start is called before the first frame update
     void Start()

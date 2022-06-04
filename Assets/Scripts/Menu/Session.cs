@@ -13,5 +13,7 @@ public class Session : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+        SceneManager.LoadScene(0);
+
     }
 }
